@@ -15,21 +15,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
-import online.vemperderseudinheiro.oncinha.entity.User;
-import online.vemperderseudinheiro.oncinha.service.UserService;
+import online.vemperderseudinheiro.oncinha.entity.Streamer;
+import online.vemperderseudinheiro.oncinha.service.StreamerService;
 
 
 @RestController
-@RequestMapping ("/user")
-public class UserController {
+@RequestMapping ("/streamer")
+public class StreamerController {
 	
 	@Autowired
-	private UserService userService;
+	private StreamerService streamerService;
 	
 	@PostMapping("/save")
-	public ResponseEntity<String>save(@Valid @RequestBody User user) {
+	public ResponseEntity<String>save(@Valid @RequestBody Streamer streamer) {
 		try {
-			String message = this.userService.save(user);
+			String message = this.streamerService.save(streamer);
 			return new ResponseEntity<String>(message, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -37,9 +37,9 @@ public class UserController {
 	}
 	
 	@PutMapping("/update/{id}")
-	public ResponseEntity<String>update(@Valid @RequestBody User user, @PathVariable Integer id) {
+	public ResponseEntity<String>update(@Valid @RequestBody Streamer streamer, @PathVariable Integer id) {
 		try {
-			String message = this.userService.update(user, id);
+			String message = this.streamerService.update(streamer, id);
 			return new ResponseEntity<String>(message, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -47,10 +47,10 @@ public class UserController {
 	}
 	
 	@GetMapping("/findall")
-	public ResponseEntity<List<User>>findAll() {
+	public ResponseEntity<List<Streamer>>findAll() {
 		try {
-			List<User> userList = this.userService.findAll();
-			return new ResponseEntity<List<User>>(userList, HttpStatus.OK);
+			List<Streamer> streamerList = this.streamerService.findAll();
+			return new ResponseEntity<List<Streamer>>(streamerList, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
@@ -59,11 +59,10 @@ public class UserController {
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String>delete(@PathVariable Integer id) {
 		try {
-			String message = this.userService.delete(id);
+			String message = this.streamerService.delete(id);
 			return new ResponseEntity<String>(message, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
-	
 }

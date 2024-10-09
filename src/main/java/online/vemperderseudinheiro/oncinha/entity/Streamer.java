@@ -5,18 +5,15 @@ import jakarta.validation.constraints.NotNull;
 import online.vemperderseudinheiro.oncinha.entity.Enums.Profile;
 
 @Entity
-public class User extends Person{
+public class Streamer extends Person {
 	private static final long serialVersionUID = 1L;
 
-	public User() {
+	public Streamer() {
 		super();
 	}
 
-	public User(Integer id, String name, String email, @NotNull String password) {
+	public Streamer(Integer id, String name, String email, @NotNull String password) {
 		super(id, name, email, password);
-		addProfile(Profile.USER);
+		addProfile(Profile.STREAMER);
 	}
-	
-	
-	
 }
