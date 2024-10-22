@@ -1,0 +1,27 @@
+<div class="container centralizar">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <div class="card" >
+                <div class="card-body">
+                    <h3>Área de Login</h3>
+                    <br>
+                    <mdb-form-control>
+                        <input mdbInput type="email" id="email" class="form-control" [(ngModel)]="this.user.email" (keyup.enter)="login()" />
+                        <label mdbLabel class="form-label" for="email">Email</label>
+                    </mdb-form-control>
+                    <br>
+                    <mdb-form-control>
+                        <input mdbInput type="password" id="senha" class="form-control" [(ngModel)]="this.user.password" (keyup.enter)="login()" />
+                        <label mdbLabel class="form-label" for="senha">Senha</label>
+                    </mdb-form-control>
+                    <br>
+                    <button type="button" class="btn btn-primary" mdbRipple (click)="login()">Entrar</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" mdbRipple (click)="redirectToCreate()">Criar conta</button>
+                </div>
+                <div class="col-lg-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
