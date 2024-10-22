@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: oncinha
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend  # Nome do seu Dockerfile para o backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db  # Espera o serviço de banco de dados estar disponível
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/oncinha
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+
+  frontend:
+    build:
+      context: ./oncinhaFront  # Caminho para o diretório do frontend
+      dockerfile: Dockerfile.angular    # Nome do seu Dockerfile para o frontend
+    ports:
+      - "4200:4200"
+
+volumes:
+  db_data:
