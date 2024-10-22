@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container centralizar">
     <div class="row">
         <div class="col-lg-4"></div>
@@ -25,3 +26,45 @@
         </div>
     </div>
 </div>
+=======
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4 centralizar topo">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Área de Cadastro</h3>
+                    <br>
+                    <mdb-form-control>
+                        <input mdbInput type="text" id="form1" class="form-control" [(ngModel)]="user.name" (keyup.enter)="createAccount()"/>
+                        <label mdbLabel class="form-label" for="form1">Nome</label>
+                    </mdb-form-control>
+                    <br>
+                    <mdb-form-control>
+                        <input mdbInput type="text" id="form1" class="form-control" [(ngModel)]="user.email" (keyup.enter)="createAccount()"/>
+                        <label mdbLabel class="form-label" for="form1">Email</label>
+                    </mdb-form-control>
+                    <br>
+                    <mdb-form-control>
+                        <input mdbInput type="password" id="senha" class="form-control" [(ngModel)]="user.password" (keyup.enter)="createAccount()"/>
+                        <label mdbLabel class="form-label" for="form1">Senha</label>
+                    </mdb-form-control>
+                    <br>
+                    <mdb-form-control>
+                        <div class="form-check">
+                            <input mdbInput type="radio" id="usuarioComum" class="form-check-input" name="profileType" [(ngModel)]="user.profile" value="0" />
+                            <label mdbLabel class="form-check-label" for="usuarioComum">Usuário Comum</label>
+                          </div>
+                          
+                          <div class="form-check">
+                            <input mdbInput type="radio" id="streamer" class="form-check-input" name="profileType" [(ngModel)]="user.profile" value= "1" />
+                            <label mdbLabel class="form-check-label" for="streamer">Streamer</label>
+                          </div>
+                    </mdb-form-control>
+                    <br>
+                    <button type="button" class="btn btn-primary" mdbRipple (click)="createAccount()">Criar conta</button>
+                </div>
+                <div class="col-lg-4"></div>
+            </div>
+        </div>
+>>>>>>> main

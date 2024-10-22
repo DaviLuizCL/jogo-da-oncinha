@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { User } from './user';
 
 describe('User', () => {
@@ -5,3 +6,12 @@ describe('User', () => {
     expect(new User()).toBeTruthy();
   });
 });
+=======
+import { User } from './user';
+
+describe('User', () => {
+  it('should create an instance', () => {
+    expect(new User()).toBeTruthy();
+  });
+});
+>>>>>>> main
