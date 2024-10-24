@@ -11,7 +11,8 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     networks:
-      - oncinha_network
+      oncinha_network:
+        ipv4_address: 172.21.0.2
 
   backend:
     build:
@@ -47,3 +48,6 @@ volumes:
 networks:
   oncinha_network:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
