@@ -3,6 +3,7 @@ version: '3.9'
 services:
   db:
     image: mysql:latest
+    container_name: data_base
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: oncinha
@@ -22,7 +23,7 @@ services:
     depends_on:
       - db
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/oncinha
+      SPRING_DATASOURCE_URL: jdbc:mysql://data_base:3306/oncinha
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
     networks:
